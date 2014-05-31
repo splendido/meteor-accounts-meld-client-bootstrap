@@ -1,5 +1,5 @@
 {
-	"name": "accounts-meld-client-templates-bootstrap",
+	"name": "accounts-meld-client-bootstrap",
 	"description": "Client Side templates styled for Twitter Bootstrap to be used with the Meteor package accounts-meld.",
 	"homepage": "https://github.com/splendido/meteor-accounts-meld-client-templates-bootstrap",
 	"author": "Luca Mussi (https://github.com/splendido)",
