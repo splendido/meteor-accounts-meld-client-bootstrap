@@ -1,0 +1,104 @@
+<template name="accountsMeld">
+  {{#if visible}}
+    <div id="myModal" class="modal fade in" tabindex="-1" role="dialog" style="display: block;">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            {{#each questions}}
+              {{> meldAction}}
+            {{/each}}
+            {{#each melding}}
+              {{> meldingAction}}
+            {{/each}}
+            {{#each completed}}
+              {{> meldingCompleted}}
+            {{/each}}
+          </div>
+          <div class="modal-body new-section">
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>
+
+<template name="meldAction">
+  <div class="alert alert-warning">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>Another account registered with your email address already exists! Would you like to meld the two?</h4>
+      </div>
+      <div class="col-sm-10">
+        {{> meldDetails}}
+      </div>
+      <div class="col-sm-2">
+        <button type="button" id="meldActionYes" class="btn btn-success btn-block">Yes</button>
+        <button type="button" id="meldActionNotNow" class="btn btn-warning btn-block">Not Now</button>
+        <button type="button" id="meldActionNever" class="btn btn-danger btn-block">Never</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="meldingAction">
+  <div class="alert alert-info">
+    <button type="button" class="close" id="closeButton">×</button>
+    <h4>Melding process started in background!</h4>
+    {{> meldDetails}}
+  </div>
+</template>
+
+<template name="meldingCompleted">
+  <div class="alert alert-success">
+    <button type="button" class="close" id="closeButton">×</button>
+    <h4>Melding process Completed!</h4>
+    {{> meldDetails}}
+  </div>
+</template>
+
+<template name="meldDetails">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Source Account</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            Services:
+            {{#each src_info.services}}
+              {{this}}
+            {{/each}}
+          </p>
+          <p>
+            Emails:
+            {{#each src_info.emails}}
+              {{address}} {{#unless verified}}(not verified!){{/unless}}
+            {{/each}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">This Account</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            Services:
+            {{#each dst_info.services}}
+              {{this}}
+            {{/each}}
+          </p>
+          <p>
+            Emails:
+            {{#each dst_info.emails}}
+              {{address}} {{#unless verified}}(not verified!){{/unless}}
+            {{/each}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
