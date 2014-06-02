@@ -5,7 +5,4 @@
 	"author": "Luca Mussi (https://github.com/splendido)",
 	"version": "1.0.2",
 	"git": "https://github.com/splendido/meteor-accounts-meld-client-templates-bootstrap.git",
-	"packages": {
-		"accounts-meld": {}
-	}
 }
