@@ -10,10 +10,6 @@ Package.on_use(function (api) {
         'lib/accounts-meld-client-templates.js',
     ], ['client']);
 
-    api.imply([
-        'accounts-meld',
-    ], ['server']);
-
     api.export([
         'MeldActions',
     ], ['client']);
